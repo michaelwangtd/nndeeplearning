@@ -187,8 +187,8 @@ def train_epoch(epochNum):
 
 if __name__ == '__main__':
 
-    rootPath = 'D:/workstation/repositories/nndeeplearning/data/super_smart/'
-    rootPath = '/data/wangtd/workspace/'
+    #rootPath = 'D:/workstation/repositories/nndeeplearning/data/super_smart/'
+    rootPath = '/data/wangtd/workspace/nndeeplearning/data/super_smart/'
 
     # 以numpy的方式加载数据，注意这里的编码方式
     mfc = np.load(rootPath + 'X.npy',encoding='bytes')
