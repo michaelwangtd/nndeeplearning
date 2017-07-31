@@ -11,28 +11,33 @@ np.set_printoptions(suppress=True,linewidth=200)
 
 
 
-
-def weight_init(shape):
-    '''
-        这里的shape是一个list
-    '''
-    # 产生一个均匀分布，形状为shape的tensor
-    initial = tf.random_uniform(shape,minval=-np.sqrt(5)*np.sqrt(1.0/shape[0]), maxval=np.sqrt(5)*np.sqrt(1.0/shape[0]))
-    return initial
+# startTime = time.time()
+# endTime = time.time()
+# print('%f seconds' % round((endTime-startTime),2))
 
 
-def bias_init(shape):
-    '''
-        shapes是一个list
-    '''
-    initial = tf.constant(0.01, shape=shape)
-    return initial
 
-
-with tf.Session() as sess:
-    # output = sess.run(weight_init([5,4]))
-    output = sess.run(bias_init([24]))
-    print(output)
+# def weight_init(shape):
+#     '''
+#         这里的shape是一个list
+#     '''
+#     # 产生一个均匀分布，形状为shape的tensor
+#     initial = tf.random_uniform(shape,minval=-np.sqrt(5)*np.sqrt(1.0/shape[0]), maxval=np.sqrt(5)*np.sqrt(1.0/shape[0]))
+#     return initial
+#
+#
+# def bias_init(shape):
+#     '''
+#         shapes是一个list
+#     '''
+#     initial = tf.constant(0.01, shape=shape)
+#     return initial
+#
+#
+# with tf.Session() as sess:
+#     # output = sess.run(weight_init([5,4]))
+#     output = sess.run(bias_init([24]))
+#     print(output)
 
 
 
