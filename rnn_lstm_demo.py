@@ -249,7 +249,15 @@ if __name__ == '__main__':
     # 训练数据
     train_epoch(10)
     endTime = time.time()
-    print('%f seconds' % round(((endTime-startTime),2)))
+    print('%f seconds' % round((endTime-startTime),2))
+
+    
+    # matpltlab
+    pY=sess.run(output,feed_dict={inputs:test[10][0]})
+    plt.plot(pY[:,8])
+    plt.plot(test[10][1][:,8])
+    plt.title('test')
+    plt.legend(['predicted','real'])
 
 
 
