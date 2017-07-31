@@ -209,10 +209,10 @@ if __name__ == '__main__':
     '''
 
     ## 1 进行数据处理
-    data = dataPreHandle(mfc,art)
+    dataList = dataPreHandle(mfc,art)
 
-    train = data[int(totalSamples*validationSet):]
-    test = data[:int(totalSamples*validationSet)]
+    train = dataList[int(totalSamples*validationSet):]
+    test = dataList[:int(totalSamples*validationSet)]
 
     ## 2 构建网络结构
     D_input = 39
@@ -252,12 +252,12 @@ if __name__ == '__main__':
     print('%f seconds' % round((endTime-startTime),2))
 
     
-    # matpltlab
-    pY=sess.run(output,feed_dict={inputs:test[10][0]})
-    plt.plot(pY[:,8])
-    plt.plot(test[10][1][:,8])
-    plt.title('test')
-    plt.legend(['predicted','real'])
+    # # matpltlab
+    # pY=sess.run(output,feed_dict={inputs:test[10][0]})
+    # plt.plot(pY[:,8])
+    # plt.plot(test[10][1][:,8])
+    # plt.title('test')
+    # plt.legend(['predicted','real'])
 
 
 
