@@ -48,7 +48,7 @@ class LSTMcell(object):
       # 输入的维度
       self.D_input = D_input
       # LSTM的hidden state的维度，同时也是memory cell的维度
-      self.D_cell = D_cell
+      self.D_cell = D_cell  # 个人理解：隐藏层个数
       # parameters
         # 输入门的 三个参数
         # igate = W_xi.* x + W_hi.* h + b_i
@@ -227,6 +227,7 @@ if __name__ == '__main__':
     rnn_cell = LSTMcell(incoming=inputs,D_input=D_input,D_cell=num_units,initializer=orthogonal_initializer)
 
     rnn0 = rnn_cell.all_steps()
+    # [n_steps, n_sample, D_cell]
     # 将3维tensor [n_steps, n_samples, D_cell]转成 矩阵[n_steps*n_samples, D_cell]
     # 用于计算outputs
     rnn = tf.reshape(rnn0,[-1,num_units])
