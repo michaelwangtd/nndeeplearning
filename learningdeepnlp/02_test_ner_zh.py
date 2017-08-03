@@ -3,32 +3,35 @@ from __future__ import unicode_literals # compatible with python3 unicode
 import pickle
 import codecs
 import deepnlp
-deepnlp.download('ner')  # download the NER pretrained models from github if installed from pip
+import jieba
+deepnlp.download()  # download the NER pretrained models from github if installed from pip
 
-from deepnlp import segmenter
+# from deepnlp import segmenter
 from deepnlp import ner_tagger
 # tagger = ner_tagger.load_model(lang = 'zh')
 
+
 #Segmentation
 text = "我爱吃北京烤鸭"
-words = segmenter.seg(text)
-print (" ".join(words))
-
-print('展示words的类型：')
+# words = segmenter.seg(text)
+words = jieba.cut(text)
+words = " ".join(words)
+words = words.split(' ')
 print(type(words),words)
 
-# 这里添加对象持久化代码
-fw = codecs.open('./words.pickle','wb')
-pickle.dump(words,fw)
-fw.close()
 
-#tagger = ner_tagger.load_model(lang='zh')
+# # 这里添加对象持久化代码
+# fw = codecs.open('./words.pickle','wb')
+# pickle.dump(words,fw)
+# fw.close()
 
-#NER tagging
-#tagging = tagger.predict(words)
-#for (w,t) in tagging:
-    #str = w + "/" + t
-    #print (str.encode('utf-8'))
+tagger = ner_tagger.load_model(lang='zh')
+
+# NER tagging
+tagging = tagger.predict(words)
+for (w,t) in tagging:
+    str = w + "/" + t
+    print (str.encode('utf-8'))
 
 #Results
 #我/nt
