@@ -4,12 +4,21 @@ import tensorflow as tf
 import numpy as np
 import time
 import matplotlib.pyplot as plt
+import pickle
+import codecs
 
 np.set_printoptions(suppress=True,linewidth=200)
 
 
-print(-1/0.7)
-print(1/0.7)
+fr = codecs.open('D:\workstation\\repositories\\nndeeplearning\data\\test\words.pickle','rb')
+words = pickle.load(fr)
+fr.close()
+print(type(words),words)
+
+
+
+# print(-1/0.7)
+# print(1/0.7)
 
 
 # arr = np.array([[1,1],[1,2],[2,2],[2,3]])

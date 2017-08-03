@@ -14,6 +14,9 @@ text = "我爱吃北京烤鸭"
 words = segmenter.seg(text)
 print (" ".join(words))
 
+print('展示words的类型：')
+print(type(words),words)
+
 # 这里添加对象持久化代码
 fw = codecs.open('./words.pickle','wb')
 pickle.dump(words,fw)
