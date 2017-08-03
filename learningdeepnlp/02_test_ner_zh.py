@@ -19,17 +19,17 @@ while True:
     if line:
         line = line.strip()
         wordList = segmenter.seg(line)
-	taggedZip = tagger.predict(wordList)
+        taggedZip = tagger.predict(wordList)
 	
-	itemReStr = ''
-	for (w,t) in taggedZip:
-	    itemReStr = itemReStr + w + '/' + t + ' '
-	    print(itemReStr)
+        itemReStr = ''
+        for (w,t) in taggedZip:
+            itemReStr = itemReStr + w + '/' + t + ' '
+            print(itemReStr)
 	    
-	nerList.append(itemReStr)
+        nerList.append(itemReStr)
     else:
         break
-print('nerList len:',len(corpusList))
+    print('nerList len:',len(corpusList))
 
 
 #Resultss
