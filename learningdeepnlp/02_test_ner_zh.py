@@ -1,6 +1,7 @@
 #coding:utf-8
 from __future__ import unicode_literals # compatible with python3 unicode
-
+import pickle
+import codecs
 import deepnlp
 deepnlp.download('ner')  # download the NER pretrained models from github if installed from pip
 
@@ -12,6 +13,11 @@ from deepnlp import ner_tagger
 text = "我爱吃北京烤鸭"
 words = segmenter.seg(text)
 print (" ".join(words))
+
+# 这里添加对象持久化代码
+fw = codecs.open('./words.pickle','wb')
+pickle.dump(words,fw)
+fw.close()
 
 #tagger = ner_tagger.load_model(lang='zh')
 
