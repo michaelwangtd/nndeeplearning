@@ -4,36 +4,35 @@ import pickle
 import codecs
 import deepnlp
 import jieba
-deepnlp.download()  # download the NER pretrained models from github if installed from pip
-
-# from deepnlp import segmenter
+# deepnlp.download()
+from deepnlp import segmenter
 from deepnlp import ner_tagger
-# tagger = ner_tagger.load_model(lang = 'zh')
+tagger = ner_tagger.load_model(lang = 'zh')
+
+corpusList = []
+nerList = []
+
+# readTestTxt
+fw = codecs.open('./testSentence.txt',encoding='utf-8')
+while True:
+    line = fw.readline()
+    if line:
+        line = line.strip()
+        wordList = segmenter.seg(line)
+	taggedZip = tagger.predict(wordList)
+	
+	itemReStr = ''
+	for (w,t) in taggedZip:
+	    itemReStr = itemReStr + w + '/' + t + ' '
+	    print(itemReStr)
+	    
+	nerList.append(itemReStr)
+    else:
+        break
+print('nerList len:',len(corpusList))
 
 
-#Segmentation
-text = "我爱吃北京烤鸭"
-# words = segmenter.seg(text)
-words = jieba.cut(text)
-words = " ".join(words)
-words = words.split(' ')
-print(type(words),words)
-
-
-# # 这里添加对象持久化代码
-# fw = codecs.open('./words.pickle','wb')
-# pickle.dump(words,fw)
-# fw.close()
-
-tagger = ner_tagger.load_model(lang='zh')
-
-# NER tagging
-tagging = tagger.predict(words)
-for (w,t) in tagging:
-    str = w + "/" + t
-    print (str.encode('utf-8'))
-
-#Results
+#Resultss
 #我/nt
 #爱/nt
 #吃/nt
