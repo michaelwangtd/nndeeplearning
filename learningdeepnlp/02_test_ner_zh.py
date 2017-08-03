@@ -24,7 +24,7 @@ while True:
         itemReStr = ''
         for (w,t) in taggedZip:
             itemReStr = itemReStr + w + '/' + t + ' '
-            print(itemReStr)
+        print(itemReStr)
 	    
         nerList.append(itemReStr)
     else:
