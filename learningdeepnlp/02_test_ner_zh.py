@@ -5,9 +5,10 @@ import codecs
 import deepnlp
 import jieba
 # deepnlp.download()
-from deepnlp import segmenter
+# from deepnlp import segmenter
 from deepnlp import ner_tagger
-tagger = ner_tagger.load_model(lang = 'zh')
+# tagger = ner_tagger.load_model(lang = 'zh')
+tagger = ner_tagger.load_model(lang = 'en')
 
 corpusList = []
 nerList = []
@@ -18,13 +19,21 @@ while True:
     line = fw.readline()
     if line:
         line = line.strip()
-        wordList = segmenter.seg(line)
+
+        # wordList = segmenter.seg(line)
+
+        # wordList = ' '.join(jieba.cut(line)).split(' ')
+
+        wordList = line.split(' ')
+
+        print('wordList:',wordList)
+
         taggedZip = tagger.predict(wordList)
 	
         itemReStr = ''
         for (w,t) in taggedZip:
             itemReStr = itemReStr + w + '/' + t + ' '
-        print(itemReStr)
+        print('nerResult:',itemReStr)
 	    
         nerList.append(itemReStr)
     else:
