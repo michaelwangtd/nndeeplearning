@@ -14,31 +14,43 @@ corpusList = []
 nerList = []
 
 # readTestTxt
-fw = codecs.open('./testSentence.txt',encoding='utf-8')
-while True:
-    line = fw.readline()
-    if line:
-        line = line.strip()
+# fw = codecs.open('./testSentence.txt',encoding='utf-8')
+# while True:
+#     line = fw.readline()
+#     if line:
+#         line = line.strip()
+#
+#         # wordList = segmenter.seg(line)
+#
+#         # wordList = ' '.join(jieba.cut(line)).split(' ')
+#
+#         wordList = line.split(' ')
+#
+#         print('wordList:',wordList)
+#
+#         taggedZip = tagger.predict(wordList)
+#
+#         itemReStr = ''
+#         for (w,t) in taggedZip:
+#             itemReStr = itemReStr + w + '/' + t + ' '
+#         print('nerResult:',itemReStr)
+#
+#         nerList.append(itemReStr)
+#     else:
+#         break
+#     print('nerList len:',len(corpusList))
 
-        # wordList = segmenter.seg(line)
 
-        # wordList = ' '.join(jieba.cut(line)).split(' ')
+test = 'Nicolas Sarkozy , French president , said he would consult European Union leaders on a possible boycott of the opening ceremony .'
 
-        wordList = line.split(' ')
+test = test.split(' ')
+print(test)
+taggedZip = tagger.predict(test)
+itemReStr = ''
+for (w,t) in taggedZip:
+    itemReStr = itemReStr + w + '/' + t + ' '
+print('nerResult:',itemReStr)
 
-        print('wordList:',wordList)
-
-        taggedZip = tagger.predict(wordList)
-	
-        itemReStr = ''
-        for (w,t) in taggedZip:
-            itemReStr = itemReStr + w + '/' + t + ' '
-        print('nerResult:',itemReStr)
-	    
-        nerList.append(itemReStr)
-    else:
-        break
-    print('nerList len:',len(corpusList))
 
 
 #Resultss
