@@ -10,10 +10,16 @@ import codecs
 np.set_printoptions(suppress=True,linewidth=200)
 
 
-fr = codecs.open('D:\workstation\\repositories\\nndeeplearning\data\\test\words.pickle','rb')
-words = pickle.load(fr)
-fr.close()
-print(type(words),words)
+
+test = 'LOCATION'
+print(test[0])
+
+
+
+# fr = codecs.open('D:\workstation\\repositories\\nndeeplearning\data\\test\words.pickle','rb')
+# words = pickle.load(fr)
+# fr.close()
+# print(type(words),words)
 
 
 
