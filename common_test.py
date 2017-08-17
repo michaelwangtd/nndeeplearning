@@ -9,10 +9,17 @@ import codecs
 
 np.set_printoptions(suppress=True,linewidth=200)
 
+infoList = [1,2,3,4,5,6,7,8,9]
+re = np.random.permutation(infoList)
+print(re)
+
+infoList = ['1','2','3','4']
+# originOrder = [i for i in range(len(infoList))]
+# print(type(originOrder),originOrder)
 
 
-test = 'LOCATION'
-print(test[0])
+# test = 'LOCATION'
+# print(test[0])
 
 
 

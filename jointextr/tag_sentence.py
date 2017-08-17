@@ -220,7 +220,7 @@ if __name__ == '__main__':
             else:
                 taggedList.append(word + '/' + 'O')
         if taggedList:
-            print(taggedList)
+            # print(taggedList)
             print(j)
             j += 1
 
@@ -228,6 +228,8 @@ if __name__ == '__main__':
 
     print('outputList length:',len(outputList))
     writeList2Txt(rootPath + 'sentence_tags.txt',outputList)
+
+
 
     # relationTagSetList = list(set(relationTagSetList))
     # print('关系标签长度：',len(relationTagSetList))
