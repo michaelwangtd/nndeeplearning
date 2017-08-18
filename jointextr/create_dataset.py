@@ -6,6 +6,7 @@ import json
 from collections import OrderedDict
 import numpy as np
 
+
 """
     利用“洗牌”算法，生成训练数据
 """
