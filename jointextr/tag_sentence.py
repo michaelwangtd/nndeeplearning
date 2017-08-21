@@ -128,12 +128,13 @@ if __name__ == '__main__':
 
     rootPath = 'D:/workstation/repositories/nndeeplearning/data/joint_extr/'
     # jsonList = loadData2Json(rootPath + 'train_test.json')
-    jsonList = loadData2Json(rootPath + 'train.json')
+    jsonList = loadData2Json(rootPath + 'test.json')
     print(len(jsonList))
 
 
     outputList = []
     relationTagSetList = []
+    outSentenceList = []
 
     i = 1
     j = 1
@@ -225,9 +226,12 @@ if __name__ == '__main__':
             j += 1
 
             outputList.append(' '.join(taggedList))
+            outSentenceList.append(sentence)
 
     print('outputList length:',len(outputList))
-    writeList2Txt(rootPath + 'sentence_tags.txt',outputList)
+    print('outSentenceList length:',len(outSentenceList))
+    writeList2Txt(rootPath + 'sentence_tags_test.txt',outputList)
+    writeList2Txt(rootPath + 'sentence_test.txt',outSentenceList)
 
 
 
