@@ -6,14 +6,42 @@ import time
 import matplotlib.pyplot as plt
 import pickle
 import codecs
+import sys
 
-np.set_printoptions(suppress=True,linewidth=200)
 
-infoList = [1,2,3,4,5,6,7,8,9]
-re = np.random.permutation(infoList)
-print(re)
 
-infoList = ['1','2','3','4']
+
+
+
+
+
+# print('array size:')
+# n = sys.stdin.read()
+# print('array:')
+# arrStr = sys.stdin.readline()
+# print('input finish...')
+# print(type(n))
+# print(type(arrStr))
+
+
+
+# n = input('输入数组个数：')
+# hello = raw_input('input a string:')
+
+
+# re = np.random.uniform(-0.25, 0.25, 300)
+# print(type(re))
+# print(len(re))
+# print(re)
+
+
+# np.set_printoptions(suppress=True,linewidth=200)
+#
+# infoList = [1,2,3,4,5,6,7,8,9]
+# re = np.random.permutation(infoList)
+# print(re)
+#
+# infoList = ['1','2','3','4']
 # originOrder = [i for i in range(len(infoList))]
 # print(type(originOrder),originOrder)
 

@@ -8,7 +8,7 @@ import numpy as np
 
 
 """
-    利用“洗牌”算法，生成训练数据
+    
 """
 
 def readListFromTxt(filePath):
@@ -69,8 +69,8 @@ def getGroupList(indexList,mapDic):
 
 if __name__ == '__main__':
 
-    rootPath = 'D:/workstation/repositories/nndeeplearning/data/joint_extr/'
-    infoList = readListFromTxt(rootPath + 'sentence_tags.txt')
+    rootPath = 'D:/workstation/repositories/nndeeplearning/data/tag_trans/'
+    infoList = readListFromTxt(rootPath + 'train_tag.txt')
     print(len(infoList))
 
     mapDic = OrderedDict()
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
     originOrder = [i for i in range(len(infoList))]
     print(len(originOrder))
-
+    # exit(0)
     #
     shuffleList = np.random.permutation(originOrder)
     trainIndex = shuffleList[0:int(len(shuffleList)/10*6)]
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     print(len(trainIndex))
     print(len(testIndex))
     print(len(devIndex))
-
+    # exit(0)
     #
     trainList = getGroupList(trainIndex,mapDic)
     testList = getGroupList(testIndex,mapDic)
